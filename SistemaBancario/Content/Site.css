@@ -35,3 +35,11 @@ textarea {
     justify-content: center;
     align-items: center;
 }
+
+.header-primary {
+    background-color: #fff;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}

@@ -38,7 +38,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbarnavbar-fixed-top header-primary">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -53,7 +53,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <asp:LinkButton ID="lnkCajero" runat="server" href="CajeroAutomatico.aspx" Visible="false">Cajero automatico</asp:LinkButton>
+                            <asp:LinkButton ID="lnkCajero" runat="server" href="CajeroAutomatico.aspx" CssClass="text-white" Visible="false">Cajero automatico</asp:LinkButton>
                         </li>
                         <li>
                             <asp:LinkButton ID="lnkTransferencias" runat="server" href="Transferencias.aspx" Visible="false">Transferencias</asp:LinkButton>
@@ -64,9 +64,11 @@
                         <li>
                             <asp:LinkButton ID="lnkCerrarSesion" runat="server" OnClick="lnkCerrarSesion_Click" Visible="false">Cerrar Sesión</asp:LinkButton>
                         </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
                         <li class="text-right">
-                            <asp:Label ID="lblTituloUsuario" runat="server" Text="Usuario activo:" ForeColor="White"></asp:Label>
-                            <asp:Label ID="lblUsuario" runat="server" Text="Invitado" ForeColor="White"></asp:Label>
+                            <asp:Label ID="lblTituloUsuario" runat="server" Text="Usuario activo:" CssClass="text-primary font-weight-bold"></asp:Label>
+                            <asp:Label ID="lblUsuario" runat="server" Text="Invitado" CssClass="text-primary font-weight-bold"></asp:Label>
                         </li>
                     </ul>
                 </div>

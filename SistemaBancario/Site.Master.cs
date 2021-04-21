@@ -16,6 +16,12 @@ namespace SistemaBancario
         {
             if (this.IsPostBack == false)
             {
+                lnkCerrarSesion.Visible = true;
+                lnkCajero.Visible = true;
+                lnkConsultarMovimientos.Visible = true;
+                lnkTransferencias.Visible = true;
+                lblTituloUsuario.Visible = true;
+                lblUsuario.Visible = true;
                 // Si la variable de sesion no es nula muestra todas las opciones del menú
                 if (Session["Usuario"] != null)
                 {
@@ -34,7 +40,7 @@ namespace SistemaBancario
                     lblUsuario.Visible = false;
 
                 }
-                
+
             }
         }
 
