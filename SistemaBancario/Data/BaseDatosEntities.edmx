@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PV2021C1_ProyectoFinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="spActualizaCuenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="monto" Type="int" Mode="In" />
+          <Parameter Name="idCuenta" Type="int" Mode="In" />
+          <Parameter Name="fechaMovimiento" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spConsultaCuentaDestino" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCuentaOrigen" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spConsultaCuentaPorNumero" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="numeroCuenta" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spConsultaCuentas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPersona" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spConsultaMovimientos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCuenta" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spConsultaTiposCajero" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spConsultaUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+          <Parameter Name="Clave" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spCrearCuentas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPersona" Type="int" Mode="In" />
+          <Parameter Name="numeroCuenta" Type="varchar" Mode="In" />
+          <Parameter Name="fechaCreacion" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spInsertaMovimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCuenta" Type="int" Mode="In" />
+          <Parameter Name="idTipoMovimiento" Type="int" Mode="In" />
+          <Parameter Name="monto" Type="int" Mode="In" />
+          <Parameter Name="fechaMovimiento" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spInsertaTransferencias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCuentaOrigen" Type="int" Mode="In" />
+          <Parameter Name="idCuentaDestino" Type="int" Mode="In" />
+          <Parameter Name="monto" Type="int" Mode="In" />
+          <Parameter Name="fechaModificacion" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="PV2021C1_ProyectoFinalModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PV2021C1_ProyectoFinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SistemaBancarioEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="spActualizaCuenta">
+            <Parameter Name="monto" Mode="In" Type="Int32" />
+            <Parameter Name="idCuenta" Mode="In" Type="Int32" />
+            <Parameter Name="fechaMovimiento" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultaCuentaPorNumero" ReturnType="Collection(PV2021C1_ProyectoFinalModel.spConsultaCuentaPorNumero_Result)">
+          <Parameter Name="numeroCuenta" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultaCuentas" ReturnType="Collection(PV2021C1_ProyectoFinalModel.spConsultaCuentas_Result)">
+          <Parameter Name="idPersona" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultaMovimientos" ReturnType="Collection(PV2021C1_ProyectoFinalModel.spConsultaMovimientos_Result)">
+          <Parameter Name="idCuenta" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultaTiposCajero" ReturnType="Collection(PV2021C1_ProyectoFinalModel.spConsultaTiposCajero_Result)" />
+          <FunctionImport Name="spConsultaUsuarios" ReturnType="Collection(PV2021C1_ProyectoFinalModel.spConsultaUsuarios_Result)">
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Clave" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spCrearCuentas">
+            <Parameter Name="idPersona" Mode="In" Type="Int32" />
+            <Parameter Name="numeroCuenta" Mode="In" Type="String" />
+            <Parameter Name="fechaCreacion" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spInsertaMovimiento">
+            <Parameter Name="idCuenta" Mode="In" Type="Int32" />
+            <Parameter Name="idTipoMovimiento" Mode="In" Type="Int32" />
+            <Parameter Name="monto" Mode="In" Type="Int32" />
+            <Parameter Name="fechaMovimiento" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultaCuentaDestino" ReturnType="Collection(PV2021C1_ProyectoFinalModel.spConsultaCuentaDestino_Result)">
+          <Parameter Name="idCuentaOrigen" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spInsertaTransferencias">
+            <Parameter Name="idCuentaOrigen" Mode="In" Type="Int32" />
+            <Parameter Name="idCuentaDestino" Mode="In" Type="Int32" />
+            <Parameter Name="monto" Mode="In" Type="Int32" />
+            <Parameter Name="fechaModificacion" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="spConsultaCuentaPorNumero_Result">
+          <Property Type="Int32" Name="idCuenta" Nullable="false" />
+          <Property Type="Int32" Name="idPersona" Nullable="false" />
+          <Property Type="String" Name="numeroCuenta" Nullable="false" MaxLength="6" />
+          <Property Type="Decimal" Name="saldo" Nullable="false" Precision="12" Scale="2" />
+          <Property Type="DateTime" Name="fechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="fechaModificacion" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="spConsultaCuentas_Result">
+          <Property Type="Int32" Name="idCuenta" Nullable="false" />
+          <Property Type="Int32" Name="idPersona" Nullable="false" />
+          <Property Type="String" Name="numeroCuenta" Nullable="false" MaxLength="6" />
+          <Property Type="Decimal" Name="saldo" Nullable="false" Precision="12" Scale="2" />
+          <Property Type="DateTime" Name="fechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="fechaModificacion" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="spConsultaMovimientos_Result">
+          <Property Type="Int32" Name="idMovimiento" Nullable="false" />
+          <Property Type="String" Name="numeroCuenta" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="25" />
+          <Property Type="Decimal" Name="monto" Nullable="false" Precision="8" Scale="2" />
+          <Property Type="DateTime" Name="fechaDelMovimiento" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="spConsultaTiposCajero_Result">
+          <Property Type="Int32" Name="idTipoMovimiento" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="spConsultaUsuarios_Result">
+          <Property Type="Int32" Name="idPersona" Nullable="false" />
+          <Property Type="String" Name="cedula" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="nombreCompleto" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="clave" Nullable="false" MaxLength="16" />
+          <Property Type="DateTime" Name="fechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="fechaModificacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="3" />
+        </ComplexType>
+        <ComplexType Name="spConsultaCuentaDestino_Result">
+          <Property Type="Int32" Name="idCuenta" Nullable="false" />
+          <Property Type="Int32" Name="idPersona" Nullable="false" />
+          <Property Type="String" Name="numeroCuenta" Nullable="false" MaxLength="6" />
+          <Property Type="Decimal" Name="saldo" Nullable="false" Precision="12" Scale="2" />
+          <Property Type="DateTime" Name="fechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="fechaModificacion" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PV2021C1_ProyectoFinalModelStoreContainer" CdmEntityContainer="SistemaBancarioEntities" >
+          <FunctionImportMapping FunctionImportName="spActualizaCuenta" FunctionName="PV2021C1_ProyectoFinalModel.Store.spActualizaCuenta" />
+          <FunctionImportMapping FunctionImportName="spConsultaCuentaPorNumero" FunctionName="PV2021C1_ProyectoFinalModel.Store.spConsultaCuentaPorNumero">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PV2021C1_ProyectoFinalModel.spConsultaCuentaPorNumero_Result">
+                <ScalarProperty Name="idCuenta" ColumnName="idCuenta" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="numeroCuenta" ColumnName="numeroCuenta" />
+                <ScalarProperty Name="saldo" ColumnName="saldo" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spConsultaCuentas" FunctionName="PV2021C1_ProyectoFinalModel.Store.spConsultaCuentas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PV2021C1_ProyectoFinalModel.spConsultaCuentas_Result">
+                <ScalarProperty Name="idCuenta" ColumnName="idCuenta" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="numeroCuenta" ColumnName="numeroCuenta" />
+                <ScalarProperty Name="saldo" ColumnName="saldo" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spConsultaMovimientos" FunctionName="PV2021C1_ProyectoFinalModel.Store.spConsultaMovimientos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PV2021C1_ProyectoFinalModel.spConsultaMovimientos_Result">
+                <ScalarProperty Name="idMovimiento" ColumnName="idMovimiento" />
+                <ScalarProperty Name="numeroCuenta" ColumnName="numeroCuenta" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="fechaDelMovimiento" ColumnName="fechaDelMovimiento" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spConsultaTiposCajero" FunctionName="PV2021C1_ProyectoFinalModel.Store.spConsultaTiposCajero">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PV2021C1_ProyectoFinalModel.spConsultaTiposCajero_Result">
+                <ScalarProperty Name="idTipoMovimiento" ColumnName="idTipoMovimiento" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spConsultaUsuarios" FunctionName="PV2021C1_ProyectoFinalModel.Store.spConsultaUsuarios">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PV2021C1_ProyectoFinalModel.spConsultaUsuarios_Result">
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="nombreCompleto" ColumnName="nombreCompleto" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spCrearCuentas" FunctionName="PV2021C1_ProyectoFinalModel.Store.spCrearCuentas" />
+          <FunctionImportMapping FunctionImportName="spInsertaMovimiento" FunctionName="PV2021C1_ProyectoFinalModel.Store.spInsertaMovimiento" />
+          <FunctionImportMapping FunctionImportName="spConsultaCuentaDestino" FunctionName="PV2021C1_ProyectoFinalModel.Store.spConsultaCuentaDestino">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PV2021C1_ProyectoFinalModel.spConsultaCuentaDestino_Result">
+                <ScalarProperty Name="idCuenta" ColumnName="idCuenta" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="numeroCuenta" ColumnName="numeroCuenta" />
+                <ScalarProperty Name="saldo" ColumnName="saldo" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spInsertaTransferencias" FunctionName="PV2021C1_ProyectoFinalModel.Store.spInsertaTransferencias" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
