@@ -150,6 +150,7 @@
       <DependentUpon>BaseDatosEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="logoBcr.jpg" />
     <Content Include="Pages\CajeroAutomatico.aspx" />
     <Content Include="Pages\ConsultarMovimientos.aspx" />
     <Content Include="Pages\CrearCuentas.aspx" />

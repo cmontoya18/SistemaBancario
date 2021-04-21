@@ -12,7 +12,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -39,32 +39,34 @@
         </asp:ScriptManager>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container" >
+            <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="/Pages/login"><img src="logoBcr.png" width ="200px" height="40px" /></a>
+                    <a class="navbar-brand" runat="server" href="/Pages/login">
+                        <asp:Image ID="Image1" runat="server" Width="75" ImageUrl="~/logoBcr.jpg" />
+                    </a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <asp:LinkButton ID="lnkCajero" runat="server" href="CajeroAutomatico.aspx" Visible="false" >Cajero automatico</asp:LinkButton>
+                            <asp:LinkButton ID="lnkCajero" runat="server" href="CajeroAutomatico.aspx" Visible="false">Cajero automatico</asp:LinkButton>
                         </li>
                         <li>
-                            <asp:LinkButton ID="lnkTransferencias" runat="server" href="Transferencias.aspx" Visible="false" >Transferencias</asp:LinkButton>
+                            <asp:LinkButton ID="lnkTransferencias" runat="server" href="Transferencias.aspx" Visible="false">Transferencias</asp:LinkButton>
                         </li>
                         <li>
-                            <asp:LinkButton ID="lnkConsultarMovimientos" runat="server" href="ConsultarMovimientos.aspx" Visible="false" >Consultar Movimientos</asp:LinkButton>
+                            <asp:LinkButton ID="lnkConsultarMovimientos" runat="server" href="ConsultarMovimientos.aspx" Visible="false">Consultar Movimientos</asp:LinkButton>
                         </li>
                         <li>
-                            <asp:LinkButton ID="lnkCerrarSesion" runat="server" OnClick="lnkCerrarSesion_Click" Visible="false" >Cerrar Sesión</asp:LinkButton>
+                            <asp:LinkButton ID="lnkCerrarSesion" runat="server" OnClick="lnkCerrarSesion_Click" Visible="false">Cerrar Sesión</asp:LinkButton>
                         </li>
                         <li class="text-right">
                             <asp:Label ID="lblTituloUsuario" runat="server" Text="Usuario activo:" ForeColor="White"></asp:Label>
-                            <asp:Label ID="lblUsuario" runat="server" Text="Invitado"  Forecolor="White"></asp:Label>
+                            <asp:Label ID="lblUsuario" runat="server" Text="Invitado" ForeColor="White"></asp:Label>
                         </li>
                     </ul>
                 </div>
@@ -74,10 +76,10 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer class="bg-primary text-center text-lg-start" >
-                <p >&copy; <%: DateTime.Now.Year %> - Derechos reservados Banco de Costa Rica</p>
-            </footer>
         </div>
+        <footer class="bg-primary text-center text-lg-start footer">
+            <p>&copy; <%: DateTime.Now.Year %> - Derechos reservados Banco de Costa Rica</p>
+        </footer>
 
     </form>
 </body>
